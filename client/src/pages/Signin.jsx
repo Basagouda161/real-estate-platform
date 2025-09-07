@@ -9,7 +9,7 @@ import {
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const { loading, error } = useSelector((state) => state.user); 
+  const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -27,9 +27,9 @@ export default function SignIn() {
       const res = await fetch('/api/auth/signin', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', // ✅ FIXED
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData),       // ✅ SEND DATA
       });
       const data = await res.json();
       console.log(data);
@@ -73,7 +73,7 @@ export default function SignIn() {
         </button>
       </form>
       <div className="flex gap-2 mt-5">
-        <p>Don't have an account?</p>
+        <p>Don’t have an account?</p>
         <Link to={'/signup'}>
           <span className="text-blue-700">Sign up</span>
         </Link>

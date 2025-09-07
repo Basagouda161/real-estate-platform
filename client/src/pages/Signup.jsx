@@ -25,7 +25,6 @@ export default function SignUp() {
         },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
       console.log(data);
 
@@ -80,7 +79,7 @@ export default function SignUp() {
 
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
-        <Link to="/signin">
+        <Link to={'/signin'}>
           <span className="text-blue-700">Sign in</span>
         </Link>
       </div>
